@@ -1,0 +1,29 @@
+#!/bin/bash
+
+while getopts "f:h" arg
+do
+    case $arg in
+        f)
+        proto_file=$OPTARG
+        ;;
+        h)
+        echo "msgpack2json.sh [-f *.proto]"
+        echo
+        echo "-f    protobuf description file"
+        echo "-h    help"
+        exit 1
+        ;;
+        ?)
+        echo "unkonw argument"
+    exit 1
+    ;;
+    esac
+done
+
+if [ ! -z "$proto_file" ]; then
+    hash protoc 2>/dev/null || { echo >&2 "protoc require but it's not installed.  Aborting."; exit 1; }
+    protoc --include_imports --descriptor_set_out=$proto_file".desc" $proto_file
+    java -jar target/msgpack2json-1.0-SNAPSHOT.jar $proto_file".desc"
+else
+    java -jar target/msgpack2json-1.0-SNAPSHOT.jar
+fi

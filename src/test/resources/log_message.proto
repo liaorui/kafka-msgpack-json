@@ -1,0 +1,15 @@
+syntax = "proto3";
+package cn.learning;
+
+message LogMessage {
+    string log_type = 1;
+    string collect_time_hour = 2;
+    int32 net_dom = 3;
+    string collect_ip = 4;
+    string collect_time_date = 5;
+    int64 collect_time = 6;
+    string dev_ip = 7;
+    string raw_msg = 8;
+    string dev_type = 9;
+    string serial_num = 10;
+}

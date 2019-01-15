@@ -1,0 +1,18 @@
+
+‚
+$src/test/resources/log_message.protocn.learning"Ä
+
+LogMessage
+log_type (	RlogType*
+collect_time_hour (	RcollectTimeHour
+net_dom (RnetDom
+
+collect_ip (	R	collectIp*
+collect_time_date (	RcollectTimeDate!
+collect_time (RcollectTime
+dev_ip (	RdevIp
+raw_msg (	RrawMsg
+dev_type	 (	RdevType
+
+serial_num
+ (	R	serialNumbproto3
